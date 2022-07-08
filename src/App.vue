@@ -37,15 +37,17 @@ export default {
     }
   },
   methods: {
-    fetchWeather(e) {
+    async fetchWeather(e) {
       if (e.key !== "Enter") {
         return undefined
       }
-      fetch(`${this.api_base}weather?q=${this.query}&appid=${this.api_key}&units=imperial`)
-          .then(res => {
-            return res.json();
-          })
-          .then(this.setResults);
+      try {
+        let response = await fetch(`${this.api_base}weather?q=${this.query}&appid=${this.api_key}&units=imperial`)
+        let data = await response.json()
+        this.setResults(data)
+      } catch (e) {
+        console.log(`Error fetching: \n${e}`)
+      }
     },
     setResults(results) {
       this.weather = results
