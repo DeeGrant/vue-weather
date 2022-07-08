@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+[cite](https://www.youtube.com/watch?v=JLc-hWsPTUY)
+[repo](https://github.com/TylerPottsDev/weather-vue)
